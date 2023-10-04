@@ -77,7 +77,7 @@ module.exports = {
   server: {
     // port: 8080, // default: 3000
     port: 8080,
-    // host: "192.168.1.97", // default: localhost
+    host: "10.42.240.200", // default: localhost
     // host: "103.104.119.144",
   },
   /* proxy: {
