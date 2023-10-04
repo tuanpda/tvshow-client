@@ -1,0 +1,16 @@
+[
+  {
+    "_id": 1,
+    "noidung": "Lĩnh vực QLTST",
+    "kehoach": "5",
+    "dangthuchien": "2",
+    "dathuchien": "1"
+  },
+{
+    "_id": 2,
+    "noidung": "Lĩnh vực Chế độ BHXH",
+    "kehoach": "3",
+    "dangthuchien": "0",
+    "dathuchien": "0"
+  }
+]
