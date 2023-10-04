@@ -165,7 +165,7 @@ export default {
 <style scoped>
 .hero.is-success {
   background: #f2f6fa;
-  background-image: url("../assets/image/working3.jpg");
+  background-image: url("../assets/image/tuan.jpg");
   background-size: cover;
 }
 .hero .nav,

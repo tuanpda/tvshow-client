@@ -7,7 +7,7 @@ module.exports = {
    ** Headers of the page
    */
   head: {
-    title: "Hệ thống kế toán - ToanLuc JSC",
+    title: "Bảo hiểm xã hội Thạch Hà - Kế hoạch công tác",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
