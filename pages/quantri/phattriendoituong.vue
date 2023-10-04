@@ -59,8 +59,8 @@
                 <i style="color: #fed604" class="far fa-calendar-check"></i>
               </span>
               <span style="color: #3850b7; font-size: 17px; font-weight: bold"
-                >Bảng theo dõi thực hiện các chỉ tiêu phát triển đối tượng tháng
-                10/2023</span
+                >Bảng theo dõi thực hiện các chỉ tiêu Thu, Phát triển đối tượng
+                tháng 10/2023</span
               >
             </div>
           </div>
