@@ -89,86 +89,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="(item, index) in dondocthutaituc.slice(0, 11)"
-                  :key="index"
-                >
+                <tr v-for="(item, index) in dondocthutaituc" :key="index">
                   <td style="text-align: center">{{ index + 1 }}</td>
-                  <td style="font-weight: bold">{{ item.noidung }}</td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach - item.dathuchien }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.dathuchien }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{
-                      ((item.dathuchien / item.kehoach) * 100)
-                        | formatNumberTyle
-                    }}
-                    %
-                  </td>
-                  <td style="text-align: center; vertical-align: middle">
-                    <div class="column">
-                      <div class="progress is-small">
-                        <div
-                          class="progress is-small"
-                          :style="{
-                            width: (item.dathuchien / item.kehoach) * 100 + '%',
-                            backgroundColor: getProgressBarColor(item),
-                          }"
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                  <td style="text-align: center; vertical-align: middle">
-                    <a @click="openModalUpdate(item)"
-                      ><span class="icon is-small is-left">
-                        <i
-                          style="color: #48c78e"
-                          class="fas fa-broom"
-                        ></i> </span
-                    ></a>
-                  </td>
-                  <td style="text-align: center; vertical-align: middle">
-                    <a @click="onDelete(item)"
-                      ><span class="icon is-small is-left">
-                        <i
-                          style="color: #f96854"
-                          class="fa fa-trash"
-                        ></i> </span
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="column">
-            <table
-              class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
-            >
-              <thead>
-                <tr style="background-color: #fdedf6">
-                  <th style="text-align: center; width: 3%">STT</th>
-                  <th style="text-align: center">Địa bàn</th>
-                  <th style="text-align: center; width: 10%">Chỉ tiêu giao</th>
-                  <th style="text-align: center; width: 10%">Đang thực hiện</th>
-                  <th style="text-align: center; width: 10%">Kết quả</th>
-                  <th style="text-align: center; width: 10%">Tỷ lệ</th>
-                  <th style="text-align: center">Tiến độ hoàn thành</th>
-                  <th style="text-align: center; width: 6%">Cập nhật</th>
-                  <th style="text-align: center; width: 6%">Xóa</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="(item, index) in dondocthutaituc.slice(11, 22)"
-                  :key="index"
-                >
-                  <td style="text-align: center">{{ index + 12 }}</td>
                   <td style="font-weight: bold">{{ item.noidung }}</td>
                   <td style="font-weight: bold; text-align: center">
                     {{ item.kehoach }}
