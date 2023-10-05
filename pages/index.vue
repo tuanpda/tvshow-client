@@ -56,7 +56,8 @@
                   </td>
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>
@@ -130,18 +131,44 @@
                 <tr v-for="(item, index) in phattriendoituong" :key="index">
                   <td style="text-align: center">{{ index + 1 }}</td>
                   <td style="font-weight: bold">{{ item.noidung }}</td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach - item.dathuchien }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.dathuchien }}
-                  </td>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.kehoach | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.kehoach | formatNumberTyleGiao }} %
+                    </td>
+                  </template>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ (item.kehoach - item.dathuchien) | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{
+                        (item.kehoach - item.dathuchien) | formatNumberTyleGiao
+                      }}
+                      %
+                    </td>
+                  </template>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.dathuchien | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.dathuchien | formatNumberTyleGiao }} %
+                    </td>
+                  </template>
+
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>
@@ -201,18 +228,19 @@
               <thead>
                 <tr style="background-color: #fdedf6">
                   <th style="text-align: center; width: 3%">STT</th>
-                  <th style="text-align: center">Nội dung / Chỉ tiêu</th>
-                  <th style="text-align: center; width: 10%">
-                    Kế hoạch giao (Đầu việc)
-                  </th>
+                  <th style="text-align: center">Địa bàn</th>
+                  <th style="text-align: center; width: 10%">Chỉ tiêu giao</th>
                   <th style="text-align: center; width: 10%">Đang thực hiện</th>
-                  <th style="text-align: center; width: 10%">Đã thực hiện</th>
+                  <th style="text-align: center; width: 10%">Kết quả</th>
                   <th style="text-align: center; width: 10%">Tỷ lệ</th>
                   <th style="text-align: center">Tiến độ hoàn thành</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(item, index) in dondocthutaituc" :key="index">
+                <tr
+                  v-for="(item, index) in dondocthutaituc.slice(0, 11)"
+                  :key="index"
+                >
                   <td style="text-align: center">{{ index + 1 }}</td>
                   <td style="font-weight: bold">{{ item.noidung }}</td>
                   <td style="font-weight: bold; text-align: center">
@@ -226,7 +254,63 @@
                   </td>
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
+                    }}
+                    %
+                  </td>
+                  <td style="text-align: center; vertical-align: middle">
+                    <div class="column">
+                      <div class="progress is-small">
+                        <div
+                          class="progress is-small"
+                          :style="{
+                            width: (item.dathuchien / item.kehoach) * 100 + '%',
+                            backgroundColor: getProgressBarColor(item),
+                          }"
+                        ></div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="column">
+            <table
+              class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth"
+            >
+              <thead>
+                <tr style="background-color: #fdedf6">
+                  <th style="text-align: center; width: 3%">STT</th>
+                  <th style="text-align: center">Địa bàn</th>
+                  <th style="text-align: center; width: 10%">Chỉ tiêu giao</th>
+                  <th style="text-align: center; width: 10%">Đang thực hiện</th>
+                  <th style="text-align: center; width: 10%">Kết quả</th>
+                  <th style="text-align: center; width: 10%">Tỷ lệ</th>
+                  <th style="text-align: center">Tiến độ hoàn thành</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="(item, index) in dondocthutaituc.slice(11, 22)"
+                  :key="index"
+                >
+                  <td style="text-align: center">{{ index + 12 }}</td>
+                  <td style="font-weight: bold">{{ item.noidung }}</td>
+                  <td style="font-weight: bold; text-align: center">
+                    {{ item.kehoach }}
+                  </td>
+                  <td style="font-weight: bold; text-align: center">
+                    {{ item.kehoach - item.dathuchien }}
+                  </td>
+                  <td style="font-weight: bold; text-align: center">
+                    {{ item.dathuchien }}
+                  </td>
+                  <td style="font-weight: bold; text-align: center">
+                    {{
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>
@@ -311,7 +395,8 @@
                   </td>
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>
@@ -351,22 +436,19 @@ export default {
         nam: "",
       },
       activeDiv: 1,
-      countdown: 50,
+      countdown: 180,
     };
   },
 
   mounted() {
     this.getThangnam();
 
-    // setInterval(() => {
-    //   this.activeDiv = (this.activeDiv % 4) + 1;
-    // }, 5000); // 10 phút
     setInterval(() => {
       this.countdown--;
 
       if (this.countdown <= 0) {
         this.activeDiv = (this.activeDiv % 4) + 1;
-        this.countdown = 50; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
+        this.countdown = 180; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
       }
     }, 1000); // Mỗi giây
   },

@@ -104,7 +104,8 @@
                   </td>
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>

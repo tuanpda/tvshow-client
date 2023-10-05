@@ -92,18 +92,44 @@
                 <tr v-for="(item, index) in phattriendoituong" :key="index">
                   <td style="text-align: center">{{ index + 1 }}</td>
                   <td style="font-weight: bold">{{ item.noidung }}</td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach | formatNumber }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ (item.kehoach - item.dathuchien) | formatNumber }}
-                  </td>
-                  <td style="font-weight: bold; text-align: center">
-                    {{ item.dathuchien | formatNumber }}
-                  </td>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.kehoach | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.kehoach | formatNumberTyleGiao }} %
+                    </td>
+                  </template>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ (item.kehoach - item.dathuchien) | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{
+                        (item.kehoach - item.dathuchien) | formatNumberTyleGiao
+                      }}
+                      %
+                    </td>
+                  </template>
+                  <template v-if="item.istyle == false">
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.dathuchien | formatNumber }}
+                    </td>
+                  </template>
+                  <template v-else>
+                    <td style="font-weight: bold; text-align: center">
+                      {{ item.dathuchien | formatNumberTyleGiao }} %
+                    </td>
+                  </template>
+
                   <td style="font-weight: bold; text-align: center">
                     {{
-                      ((item.dathuchien / item.kehoach) * 100) | formatNumber
+                      ((item.dathuchien / item.kehoach) * 100)
+                        | formatNumberTyle
                     }}
                     %
                   </td>
@@ -477,7 +503,7 @@ export default {
       this.isActive_update = true;
       this.form_Update_Data = data;
       this.child_Data = { ...data };
-      //   console.log(this.form_Update_Data);
+      // console.log(this.form_Update_Data);
     },
 
     async onUpdate() {
