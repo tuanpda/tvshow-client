@@ -1,7 +1,12 @@
 <template>
   <div class="columns">
     <div class="column">
-      <!-- <span class="clock">{{ formatTime(countdown) }}</span> -->
+      <div
+        class="column is-pulled-right"
+        style="margin-top: -35px; padding-right: 20px"
+      >
+        <span class="clock">{{ formatTime(countdown) }}</span>
+      </div>
       <!-- Kế hoạch công việc -->
       <div v-show="activeDiv === 1" class="box" style="margin: 20px">
         <div class="columns">
@@ -346,7 +351,7 @@ export default {
         nam: "",
       },
       activeDiv: 1,
-      countdown: 600,
+      countdown: 50,
     };
   },
 
@@ -361,7 +366,7 @@ export default {
 
       if (this.countdown <= 0) {
         this.activeDiv = (this.activeDiv % 4) + 1;
-        this.countdown = 600; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
+        this.countdown = 50; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
       }
     }, 1000); // Mỗi giây
   },
@@ -441,6 +446,6 @@ export default {
 .clock {
   color: white;
   font-weight: bold;
-  font-size: large;
+  font-size: 30px;
 }
 </style>

@@ -93,13 +93,13 @@
                   <td style="text-align: center">{{ index + 1 }}</td>
                   <td style="font-weight: bold">{{ item.noidung }}</td>
                   <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach }}
+                    {{ item.kehoach | formatNumber }}
                   </td>
                   <td style="font-weight: bold; text-align: center">
-                    {{ item.kehoach - item.dathuchien }}
+                    {{ (item.kehoach - item.dathuchien) | formatNumber }}
                   </td>
                   <td style="font-weight: bold; text-align: center">
-                    {{ item.dathuchien }}
+                    {{ item.dathuchien | formatNumber }}
                   </td>
                   <td style="font-weight: bold; text-align: center">
                     {{
@@ -205,12 +205,12 @@
             </div>
           </div>
 
-          <!-- <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
-            </div>
-          </div> -->
+          <div class="field">
+            <label class="checkbox">
+              <input v-model="form_Add_Data.istyle" type="checkbox" />
+              Tỷ lệ dư nợ
+            </label>
+          </div>
           <br />
           <div>
             <div class="control">
@@ -278,13 +278,12 @@
                 />
               </div>
             </div>
-
-            <!-- <div class="field">
-            <label class="label">Message</label>
-            <div class="control">
-              <textarea class="textarea" placeholder="Textarea"></textarea>
+            <div class="field">
+              <label class="checkbox">
+                <input v-model="child_Data.istyle" type="checkbox" />
+                Tỷ lệ dư nợ
+              </label>
             </div>
-          </div> -->
             <br />
             <div>
               <div class="control">
@@ -316,6 +315,7 @@ export default {
         malinhvuc: "2",
         linhvuc: "Phát triển đối tượng",
         createdAt: null,
+        istyle: false,
       },
       form_Update_Data: null,
       child_Data: null,
