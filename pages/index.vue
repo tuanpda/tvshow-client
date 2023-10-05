@@ -426,7 +426,7 @@
         class=""
         style="margin: 20px; text-align: center"
       >
-        <img src="http://localhost:8080/bhtn.jpg" width="850" alt="" />
+        <img src="http://10.42.240.200:8080/bhtn.jpg" width="850" alt="" />
       </div>
     </div>
   </div>
