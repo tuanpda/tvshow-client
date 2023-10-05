@@ -450,7 +450,7 @@ export default {
         nam: "",
       },
       activeDiv: 1,
-      countdown: 180,
+      countdown: 5,
     };
   },
 
@@ -462,7 +462,7 @@ export default {
 
       if (this.countdown <= 0) {
         this.activeDiv = (this.activeDiv % 5) + 1;
-        this.countdown = 180; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
+        this.countdown = 5; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
       }
     }, 1000); // Mỗi giây
   },
