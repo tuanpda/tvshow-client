@@ -419,15 +419,29 @@
           </div>
         </div>
       </div>
+
+      <!-- Đôn đốc thực hiện kế hoạch thanh tra -->
+      <div
+        v-show="activeDiv === 5"
+        class=""
+        style="margin: 20px; text-align: center"
+      >
+        <img src="http://localhost:8080/bhtn.jpg" width="850" alt="" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
-import Swal from "sweetalert2";
+// import pdf from "vue-pdf";
+// import VuePdfEmbed from "vue-pdf-embed/dist/vue2-pdf-embed";
 export default {
   auth: "guest",
+  components: {
+    // pdf,
+    // VuePdfEmbed,
+  },
   data() {
     return {
       data: [],
@@ -447,7 +461,7 @@ export default {
       this.countdown--;
 
       if (this.countdown <= 0) {
-        this.activeDiv = (this.activeDiv % 4) + 1;
+        this.activeDiv = (this.activeDiv % 5) + 1;
         this.countdown = 180; // Đặt lại thời gian đếm ngược thành 10 phút (10 * 60 giây)
       }
     }, 1000); // Mỗi giây

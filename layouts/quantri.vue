@@ -65,6 +65,7 @@
                   <option value="thuchienkltt">
                     Thực hiện kết luận thanh tra - Quyết toán
                   </option>
+                  <option value="filepdf">Hiển thị file PDF</option>
                 </select>
               </div>
               <div class="icon is-small is-left">
@@ -111,6 +112,9 @@ export default {
             break;
           case "thuchienkltt":
             this.$router.push("/quantri/thuchienkltt");
+            break;
+          case "filepdf":
+            this.$router.push("/quantri/pdf");
             break;
           default:
             break;

@@ -18,7 +18,7 @@ module.exports = {
       },
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/logo.jpg" },
+      { rel: "icon", type: "image/x-icon", href: "/logobhxh.png" },
       {
         rel: "stylesheet",
         href: "/fontawesome-free-6.4.0-web/css/all.css",

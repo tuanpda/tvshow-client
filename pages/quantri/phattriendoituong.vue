@@ -503,7 +503,7 @@ export default {
       this.isActive_update = true;
       this.form_Update_Data = data;
       this.child_Data = { ...data };
-      // console.log(this.form_Update_Data);
+      console.log(this.form_Update_Data);
     },
 
     async onUpdate() {
@@ -519,6 +519,7 @@ export default {
             noidung: this.child_Data.noidung,
             kehoach: this.child_Data.kehoach,
             dathuchien: this.child_Data.dathuchien,
+            istyle: this.child_Data.istyle,
           };
 
           const payload = {
