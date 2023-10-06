@@ -194,19 +194,6 @@
 
       <!-- Đôn đốc tái tục BHXH TN -->
       <div v-show="activeDiv === 3" class="box" style="margin: 20px">
-        <!-- <div class="columns">
-          <div class="column">
-            <div class="control">
-              <span class="icon is-small is-left">
-                <i style="color: #00d1b2" class="fas fa-calendar-alt"></i>
-              </span>
-              <span style="color: #3850b7; font-size: 17px; font-weight: bold"
-                >Kế hoạch công việc</span
-              >
-            </div>
-          </div>
-        </div>
-        <hr /> -->
         <div class="columns">
           <div class="column">
             <div class="control">
@@ -227,13 +214,25 @@
             >
               <thead>
                 <tr style="background-color: #fdedf6">
-                  <th style="text-align: center; width: 3%">STT</th>
-                  <th style="text-align: center">Địa bàn</th>
-                  <th style="text-align: center; width: 10%">Chỉ tiêu giao</th>
-                  <th style="text-align: center; width: 10%">Đang thực hiện</th>
-                  <th style="text-align: center; width: 10%">Kết quả</th>
-                  <th style="text-align: center; width: 10%">Tỷ lệ</th>
-                  <th style="text-align: center">Tiến độ hoàn thành</th>
+                  <th style="text-align: center; width: 3%; font-size: small">
+                    STT
+                  </th>
+                  <th style="text-align: center; font-size: small">Địa bàn</th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Chỉ tiêu giao
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Đang thực hiện
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Kết quả
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Tỷ lệ
+                  </th>
+                  <th style="text-align: center; font-size: small">
+                    Tiến độ hoàn thành
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -241,25 +240,59 @@
                   v-for="(item, index) in dondocthutaituc.slice(0, 11)"
                   :key="index"
                 >
-                  <td style="text-align: center">{{ index + 1 }}</td>
-                  <td style="font-weight: bold">{{ item.noidung }}</td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td style="text-align: center; font-size: small">
+                    {{ index + 1 }}
+                  </td>
+                  <td style="font-weight: bold; font-size: small">
+                    {{ item.noidung }}
+                  </td>
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.kehoach }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.kehoach - item.dathuchien }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.dathuchien }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{
                       ((item.dathuchien / item.kehoach) * 100)
                         | formatNumberTyle
                     }}
                     %
                   </td>
-                  <td style="text-align: center; vertical-align: middle">
+                  <td
+                    style="
+                      text-align: center;
+                      vertical-align: middle;
+                      font-size: small;
+                    "
+                  >
                     <div class="column">
                       <div class="progress is-small">
                         <div
@@ -282,13 +315,25 @@
             >
               <thead>
                 <tr style="background-color: #fdedf6">
-                  <th style="text-align: center; width: 3%">STT</th>
-                  <th style="text-align: center">Địa bàn</th>
-                  <th style="text-align: center; width: 10%">Chỉ tiêu giao</th>
-                  <th style="text-align: center; width: 10%">Đang thực hiện</th>
-                  <th style="text-align: center; width: 10%">Kết quả</th>
-                  <th style="text-align: center; width: 10%">Tỷ lệ</th>
-                  <th style="text-align: center">Tiến độ hoàn thành</th>
+                  <th style="text-align: center; width: 3%; font-size: small">
+                    STT
+                  </th>
+                  <th style="text-align: center; font-size: small">Địa bàn</th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Chỉ tiêu giao
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Đang thực hiện
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Kết quả
+                  </th>
+                  <th style="text-align: center; width: 10%; font-size: small">
+                    Tỷ lệ
+                  </th>
+                  <th style="text-align: center; font-size: small">
+                    Tiến độ hoàn thành
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -296,25 +341,59 @@
                   v-for="(item, index) in dondocthutaituc.slice(11, 22)"
                   :key="index"
                 >
-                  <td style="text-align: center">{{ index + 12 }}</td>
-                  <td style="font-weight: bold">{{ item.noidung }}</td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td style="text-align: center; font-size: small">
+                    {{ index + 12 }}
+                  </td>
+                  <td style="font-weight: bold; font-size: small">
+                    {{ item.noidung }}
+                  </td>
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.kehoach }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.kehoach - item.dathuchien }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{ item.dathuchien }}
                   </td>
-                  <td style="font-weight: bold; text-align: center">
+                  <td
+                    style="
+                      font-weight: bold;
+                      text-align: center;
+                      font-size: small;
+                    "
+                  >
                     {{
                       ((item.dathuchien / item.kehoach) * 100)
                         | formatNumberTyle
                     }}
                     %
                   </td>
-                  <td style="text-align: center; vertical-align: middle">
+                  <td
+                    style="
+                      text-align: center;
+                      vertical-align: middle;
+                      font-size: small;
+                    "
+                  >
                     <div class="column">
                       <div class="progress is-small">
                         <div
